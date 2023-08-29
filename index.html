@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
                     <section id="password-generation-criteria"><br>
-                        <label for="password-length-slider">Password Length: </label><br>
+                        <label for="password-length-slider" id="password-length-label">Password Length: 20</label><br>
                         <input type="range" min="8" max="128" value="20" step="1" id="password-length-slider"><br><br>
                         <section id="character-type-checkboxes">
                             <input type="checkbox" id="lowercase-characters-checkbox">
@@ -31,6 +31,9 @@
                             <input type="checkbox" id="special-characters-checkbox">
                             <label for="special-characters-checkbox">Use Special Characters</label>
                             <br> <br>
+                        </section>
+                        <section class="error-class">
+                            <p id="error-text">At least one type of character (lowercase, uppercase, numeric, or special) must be selected.</p>
                         </section>
                     </section>
                 </div>
