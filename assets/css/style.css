@@ -52,7 +52,6 @@ header {
 
 .card-body {
   min-height: 100px;
-  text-align: center;
 }
 
 .card-footer {
@@ -94,6 +93,12 @@ button[disabled] {
   background: #c0c7cf;
 }
 
+.error-class{
+    font-size: 1em;
+    text-align: left;
+    color: red;
+}
+
 .float-right {
   float: right;
 }
@@ -119,14 +124,23 @@ button[disabled] {
   overflow: hidden;
 }
 
-#character-type-checkboxes{
+/* #character-type-checkboxes{
     width: 34%;
     margin: auto;
     text-align: left;
+} */
+
+#error-text {
+    display: none;
 }
 
-#password-length-slider{
+/* #password-length-slider{
     width: 34%;
+} */
+
+#password-generation-criteria {
+    display: none;
+    text-align: center;
 }
 
 @media (max-width: 690px) {
