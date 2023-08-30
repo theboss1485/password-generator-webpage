@@ -36,7 +36,7 @@ h1{
     border-radius: 25px;
 
     /* I went ahead and altered the box shadow property here, because the way it was given in the starter code wasn't recognized
-    as valid by Google Chrome.  */
+    as valid by Google Chrome. */
     box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
     color: hsl(0, 0%, 100%);
     cursor: pointer;
@@ -98,10 +98,10 @@ and the 'Generate Password' button.*/
 
 /* The wrapper class wraps around the card and includes the 'Password Generator' heading. */
 .wrapper {
-    padding-top: 30px;
     padding-left: 20px;
     padding-right: 20px;
-  }
+    padding-top: 30px;
+}
 
 #password {
     -webkit-appearance: none;
@@ -111,13 +111,13 @@ and the 'Generate Password' button.*/
     border-radius: 6px;
     display: block;
     font-size: 1.2rem;
-    margin-top: 10px;
     margin-bottom: 10px;
+    margin-top: 10px;
     overflow: hidden;
-    padding-top: 15px;
+    padding-bottom: 85px;
     padding-left: 15px;
     padding-right: 15px;
-    padding-bottom: 85px;
+    padding-top: 15px;
     resize: none;
     text-align: center;
     width: 100%;

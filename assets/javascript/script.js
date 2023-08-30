@@ -4,7 +4,7 @@ var generateBtn = document.querySelector("#generate");
 
 var actualString = '';
 
-/* The Xpert Learning Assistant AI gave me the code for this function.  This determines the what the actual 
+/* The Xpert Learning Assistant AI gave me the code for this function.  This determines what the actual 
 password is from the valid character types and the length that the user inputted. */
 function generateCharacterString(listOfValidCharacters, passwordLength){
     
@@ -116,7 +116,7 @@ function generatePassword(){
                 generateCharacterString(validCharacterSubstring, 1)
                 preliminaryCharacterGenerationCounter++;
             
-            //Here is another error message if the user gives an invalid response to questions two through five.
+            //Here is another error message.  It displays if the user gives an invalid response to questions two through five.
             } else if ((userInput.toLowerCase() !== 'no' && userInput.toLowerCase() !== 'n') && loopCounter > 1 && loopCounter < 6){
 
                 alert("That was an invalid response.  Please try again.");

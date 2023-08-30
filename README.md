@@ -21,7 +21,7 @@ N/A
 Here is a link to the deployed password generator webpage: https://theboss1485.github.io/password-generator-webpage/
 
 To use the password generator, click the 'Generate Password' button.  The system will ask for a password length.  Enter a number between 8 and 128, inclusive, in digits, and 
-click OK.  The system will then ask four questions regarding what characters the user wants in the password.  For each question, answer with 'yes' or 'no' and click OK.  
+click OK.  The system will then ask four questions regarding what characters the user wants in the password.  For each question, answer with 'yes' or 'no', and click OK.  
 The system will then generate the password and display it inside of the dashed-border rectangle.
 
 Here is a screenshot of the webpage: 
