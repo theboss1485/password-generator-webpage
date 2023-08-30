@@ -1,10 +1,7 @@
-// Assignment code here
 
-
-
-
-// Get references to the #generate element
+// The following variable gets a reference to the #generate element.
 var generateBtn = document.querySelector("#generate");
+
 var actualString = '';
 
 /* The Xpert Learning Assistant AI gave me the code for this function.  This determines the what the actual 
@@ -17,10 +14,10 @@ function generateCharacterString(listOfValidCharacters, passwordLength){
         var randomCharacter = listOfValidCharacters[randomNumberUpToStringLength];
         actualString += randomCharacter;
     }
+
     if(passwordLength != 1){
         return actualString;
     }
-    
 }
 
 function generatePassword(){
@@ -108,11 +105,14 @@ function generatePassword(){
                 } else if (loopCounter == 5){
 
                     // I took this list of special characters from https://owasp.org/www-community/password-special-characters
-                    validCharacterSubstring = ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~"';
+                    validCharacterSubstring = ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
                     var specialCharacters = true;
                 }
 
                 listOfValidCharacters += validCharacterSubstring;
+
+                /*When the user selects a new type of character to be added, one character in the password is automattically generated as that 
+                type of character.  This makes sure that the password includes at least one of each of the character types the user wanted.*/
                 generateCharacterString(validCharacterSubstring, 1)
                 preliminaryCharacterGenerationCounter++;
             
@@ -140,8 +140,8 @@ function generatePassword(){
     actualString = '';
 }
 
-    // The following line adds an event listener to the '#generate' button.
-    generateBtn.addEventListener("click", generatePassword);
+// The following line adds an event listener to the '#generate' button.
+generateBtn.addEventListener("click", generatePassword);
 
 
 
