@@ -2,10 +2,10 @@
 
 ## Description
 
-My motivation to build this project was to improve my JavaScript skills.  I built this project so that I could practice to writing JavaScript functions and boolean logic.  This 
+My motivation to build this project was to improve my JavaScript skills.  I built this project so that I could practice writing JavaScript functions and boolean logic.  This 
 project solves the problem of a user needing to be able to generate secure passwords for the various websites he or she uses.  For the password generation webpage, I included 
 JavaScript logic to ask the user how long they want the password to be and what types of characters they want in the password.  I wrote the program to validate each input from the user 
-and then use Math.Random() to generate a password from the types of characters the user wanted.  In this challenge, I learned about how to generate JavaScript prompts and alert messages,
+and then use Math.Random() to generate a password from the types of characters that the user wanted.  In this challenge, I learned about how to generate JavaScript prompts and alert messages,
 how to use event listeners, and how to generate a random string using Math.Random().
 
 ## Table of Contents (Optional)
