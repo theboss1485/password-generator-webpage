@@ -5,21 +5,27 @@
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
+var actualString = '';
 
-// The Xpert Learning Assistant AI helped me write this function.
+/* The Xpert Learning Assistant AI gave me the code for this function.  This determines the what the actual 
+password is from the valid character types and the length that the user inputted. */
 function generateCharacterString(listOfValidCharacters, passwordLength){
-    var actualString = '';
+    
     for (var counter = 0; counter < passwordLength; counter++){
-        var randomNumberBetweenZeroAndOne = Math.random();
-        var randomNumberUpToStringLengthMinusOne = Math.floor(randomNumberBetweenZeroAndOne * (listOfValidCharacters.length - 1));
-        var randomCharacter = listOfValidCharacters[randomNumberUpToStringLengthMinusOne];
+        var randomNumberBetweenZeroAndOne = Math.random();  
+        var randomNumberUpToStringLength = Math.floor(randomNumberBetweenZeroAndOne * (listOfValidCharacters.length));  
+        var randomCharacter = listOfValidCharacters[randomNumberUpToStringLength];
         actualString += randomCharacter;
     }
-
-    return actualString;
+    if(passwordLength != 1){
+        return actualString;
+    }
+    
 }
 
 function generatePassword(){
+    
+    //Here, I declare the variables for the method.
     var listOfValidCharacters = '';
     var valid = false;
     var lowercaseLetters = false;
@@ -27,9 +33,14 @@ function generatePassword(){
     var numbers = false;
     var specialCharacters = false;
     var loopCounter = 1;
+    var preliminaryCharacterGenerationCounter = 0;
     var userInput = "";
-
+    var validCharacterSubstring = "";
     var yesOrNoSentence = "Please enter 'yes' or 'no', without quote marks."
+    
+
+    /*The program needs to figure what type of characters the user wants in the password, and how long the password should be.
+    The program loops through this logic five times and asks a different question each time.*/
     while (loopCounter < 6){
         
         switch(loopCounter){
@@ -40,7 +51,7 @@ function generatePassword(){
                 userInput = prompt("Would you like to include lowercase letters in your password? " + yesOrNoSentence);
                 break;
             case 3:
-                userInput = prompt("Would you like to include uppercase lettersin your password? " + yesOrNoSentence);
+                userInput = prompt("Would you like to include uppercase letters in your password? " + yesOrNoSentence);
                 break;
             case 4:
                 userInput = prompt("Would you like to include numbers in your password? " + yesOrNoSentence);
@@ -54,49 +65,58 @@ function generatePassword(){
 
         while(!valid){
 
+            //If the user clicks the "Cancel" button when prompted, the script stops executing.
             if(userInput === null){
                 return;
             }
 
+            //If the answer to the first question is valid, the length of the password is logged.
             if (loopCounter === 1 && (userInput >= 8) && (userInput <= 128) && (isNaN(userInput) === false) && userInput !== ""){
 
                 passwordLength = userInput;
                 loopCounter++;
                 break;
 
-            } else if (loopCounter === 1 && ((isNaN(userInput)) == true || userInput === "" || userInput.IsuserInput < 8 || userInput > 128)){
+            //If the answer to the first question isn't valid, the user receives an error message and is aksed to try again.
+            } else if (loopCounter === 1 && ((isNaN(userInput)) == true || userInput === "" || userInput < 8 || userInput > 128)){
 
                 userInput = prompt("That was an invalid response.  Please enter a number between 8 and 128, inclusive.");
                 continue;
             }
 
+            /*Depending on what question the user was asked, as long as the user gives a valid answer, the program adds
+            that character set to the list of valid characters.*/
             if((loopCounter > 1 && userInput.toLowerCase() === 'yes' || userInput.toLowerCase() === 'y') )  {
                 
 
                 if(loopCounter == 2){
 
-                    listOfValidCharacters += 'abcdefghijklmnopqrstuvwxyz';
+                    validCharacterSubstring = 'abcdefghijklmnopqrstuvwxyz';
                     var lowercaseLetters = true;
                     
 
                 } else if (loopCounter == 3){
 
-                    listOfValidCharacters += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                    validCharacterSubstring = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
                     var uppercaseLetters = true;
 
                 } else if (loopCounter == 4){
 
-                    listOfValidCharacters += '12343567890';
+                    validCharacterSubstring = '12343567890';
                     var numbers = true;
 
                 } else if (loopCounter == 5){
 
                     // I took this list of special characters from https://owasp.org/www-community/password-special-characters
-                    listOfValidCharacters += ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~"';
+                    validCharacterSubstring = ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~"';
                     var specialCharacters = true;
                 }
 
-                valid = true;
+                listOfValidCharacters += validCharacterSubstring;
+                generateCharacterString(validCharacterSubstring, 1)
+                preliminaryCharacterGenerationCounter++;
+            
+            //Here is another error message if the user gives an invalid response to questions two through five.
             } else if ((userInput.toLowerCase() !== 'no' && userInput.toLowerCase() !== 'n') && loopCounter > 1 && loopCounter < 6){
 
                 alert("That was an invalid response.  Please try again.");
@@ -106,6 +126,7 @@ function generatePassword(){
             loopCounter++;
             valid = true;
 
+            //If the user chooses not to have any of the four character types in the password, the system displays an error message.
             if (loopCounter == 6 && lowercaseLetters == false && uppercaseLetters == false && numbers == false && specialCharacters == false){
                 alert("You must have at lease one of the four character types in your password.  Try again.");
                 loopCounter = 2
@@ -114,12 +135,14 @@ function generatePassword(){
         }
     }
 
-    var actualPassword = generateCharacterString(listOfValidCharacters, passwordLength);
-    var passwordText = document.querySelector("#password").textContent = actualPassword;
+    var actualPassword = generateCharacterString(listOfValidCharacters, passwordLength - preliminaryCharacterGenerationCounter);
+    document.querySelector("#password").textContent = actualPassword;
+    actualString = '';
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", generatePassword);
+    // The following line adds an event listener to the '#generate' button.
+    generateBtn.addEventListener("click", generatePassword);
+
 
 
 
