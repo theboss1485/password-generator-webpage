@@ -36,7 +36,7 @@ h1{
     border-radius: 25px;
 
     /* I went ahead and altered the box shadow property here, because the way it was given in the starter code wasn't recognized
-    by as valid by Google Chrome.  */
+    as valid by Google Chrome.  */
     box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
     color: hsl(0, 0%, 100%);
     cursor: pointer;
