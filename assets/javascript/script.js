@@ -36,7 +36,7 @@ function generatePassword(){
     var yesOrNoSentence = "Please enter 'yes' or 'no', without quote marks."
     
 
-    /*The program needs to figure what type of characters the user wants in the password, and how long the password should be.
+    /*The program needs to figure out what type of characters the user wants in the password, and how long the password should be.
     The program loops through this logic five times and asks a different question each time.*/
     while (loopCounter < 6){
         
@@ -116,7 +116,7 @@ function generatePassword(){
                 generateCharacterString(validCharacterSubstring, 1)
                 preliminaryCharacterGenerationCounter++;
             
-            //Here is another error message.  It displays if the user gives an invalid response to questions two through five.
+            //Here is another error message.  The system displays this error if the user gives an invalid response to questions two through five.
             } else if ((userInput.toLowerCase() !== 'no' && userInput.toLowerCase() !== 'n') && loopCounter > 1 && loopCounter < 6){
 
                 alert("That was an invalid response.  Please try again.");

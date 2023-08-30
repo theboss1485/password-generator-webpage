@@ -144,7 +144,7 @@ and the 'Generate Password' button.*/
     }
 }
 
-/* The following media query that I added a scrollbar to the text area when the screen gets narrow. */
+/* The following media query that I added adds a scrollbar to the text area when the screen gets narrow. */
 @media (max-width: 465px){
     #password{
         overflow: auto;
